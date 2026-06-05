@@ -13,7 +13,13 @@
      Why is this knowledge valuable, and why is it hard to find through official channels?
      Example: "Student reviews of CS professors at [university] — useful because official
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
+The domain is things you wouldn't learn on an official campus tour. This includes hidden spaces, 
+lesser known history, art, nature that most students never discover. 
 
+This knowledge is valuable because it allows a student to fully immerse in the uniqueness of 
+the Historic University of Colorado Boulder campus. The campus celebrated 150 years which 
+prompted me to consider all the stories, secrets, adventure and art that remain within the walls,
+waiting for a student to uncover it.
 ---
 
 ## Document Sources
@@ -24,12 +30,12 @@
 
 | # | Source | Type | URL or file path |
 |---|--------|------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 | CU Independent Newsletter| Article |cuindependent.com/2007/01/28/history-behind-the-name-cus-famous-monikers/ |
+| 2 | HerCampus| Article | https://www.hercampus.com/school/cu-boulder/hidden-gems-to-study-at-cu-boulder/ |
+| 3 | AboutBoulder | Article |https://aboutboulder.com/blog/exploring-the-hidden-gems-university-of-colorados-top-off-the-beaten-path-attractions/ |
+| 4 | Cu Boulder Student Life | Website with Links| https://www.colorado.edu/today/2020/01/30/your-guide-campus-venues-museums-and-more |
+| 5 | Visit Boulder | List and Map |  https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/ |
+| 6 | Coloradan Alumni Magazine | Website | colorado.edu/coloradan/2021/01/21/10-plants-and-animals-spot-campus |
 | 7 | | | |
 | 8 | | | |
 | 9 | | | |
