@@ -36,10 +36,17 @@ waiting for a student to uncover it.
 | 4 | Cu Boulder Student Life | Website with Links| https://www.colorado.edu/today/2020/01/30/your-guide-campus-venues-museums-and-more |
 | 5 | Visit Boulder | List and Map |  https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/ |
 | 6 | Coloradan Alumni Magazine | Website | colorado.edu/coloradan/2021/01/21/10-plants-and-animals-spot-campus |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 7 | Cu Independent |Article | https://www.cuindependent.com/2013/10/24/secret-tunnels-and-murder-the-not-so-scary-truth/|
+| 8 | Coloradan Alumni Magazine | Article |https://www.colorado.edu/coloradan/2010/09/01/unlocking-cu-secrets |
+| 9 | BASIN | Text | https://bcn.boulder.co.us/basin/watershed/geology/historic.html
+| 10 | CU Independent | Newspaper | https://www.cuindependent.com/2023/10/31/a-haunted-history-of-cus-macky-auditorium/ |
+| 11 | About Boulder | Website | https://aboutboulder.com/blog/old-main-at-cu-boulder-history-flatirons-views-fun-facts/ |
+https://www.reddit.com/r/whatisit/comments/1rwtvbg/comment/ob2cvjy/
+https://www.reddit.com/r/cuboulder/comments/w0ylxm/what_are_some_good_hidden_places_or_resource/
+https://www.reddit.com/r/whatisit/comments/1rwtvbg/comment/ob2cvjy/
+https://www.reddit.com/r/cuboulder/comments/1stfz3m/whats_a_free_thing_to_do_in_boulder_that_most_cu/
+
+
 
 ---
 
