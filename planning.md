@@ -79,6 +79,25 @@ adventure and art that remain within the walls,waiting for a student to uncover 
 **Overlap:**
 
 **Reasoning:**
+Here's the edited version, cleaned up for clarity, consistency, and ready to hand to Claude as a precise spec:
+
+---
+
+**Chunking Strategy**
+
+For newspaper articles and webpages, I will use a chunk size of **300 tokens** with a **75-token overlap**. These documents are typically focused on a single subject. At 300 tokens, each chunk should capture one complete idea without pulling in unrelated content. The 75-token overlap ensures that sentences straddling a boundary remain retrievable from either side.
+
+For Reddit comments and short student-written posts, I will use a chunk size of **150 tokens** with a **30-token overlap**. These sources are already compact and conversational. Larger chunks would group unrelated tips or comments together and reduce retrieval precision.
+
+For map captions and single-line entries, I will keep each entry as **one chunk with no splitting**, typically 30–80 tokens. These inputs are already self-contained units of meaning. Instead of overlap, I will attach structured metadata — including place name, source URL, and category — so retrieval has enough signal to surface them correctly.
+
+---
+
+| Document type | Chunk size | Overlap | Splitting |
+|---|---|---|---|
+| Articles and webpages | 300 tokens | 75 tokens | Yes |
+| Reddit / short posts | 150 tokens | 30 tokens | Yes |
+| Map captions | 30–80 tokens | None | No |
 
 ---
 
@@ -91,10 +110,26 @@ adventure and art that remain within the walls,waiting for a student to uncover 
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+THe model that I would use is all-mpnet-base-v2 via sentence-transformer. The all-MiniLM-L6-v2, 
+while popular, limits chunk size to 256 chars which is is not effective for the longer chunks 
+required for the article and webpage artifacts. This model also eliminates the silent truncation 
+that would happen with with the all-MiniLM-L6-v2 model. Choosing all-mpnet-base-v2 will still 
+be very fast and free without requiring an API key. If I wasn't limitedby cost, the 
+multi-qa-mpnet-base-dot-v1 is a defensible upgrade given because this RAG is question-answering 
+system.
 
 **Top-k:**
+The embedding model will use a single retrieval call instead of per-type routing. For the corpus
+as a while, k=5 should be a solid option. 
 
 **Production tradeoff reflection:**
+If I wasn't limitedby cost, the multi-qa-mpnet-base-dot-v1 is a defensible upgrade given because 
+this RAG I'm building is a question-answering system. That library has been trained on a wider 
+range of inputs and better supports natural language inputs than the all-mpnet-base-v2 is strong
+with keyword input so I will try to support the model with an increased number of source files to 
+not have to pay for the upgraded library. 
+If the retrieval call proves to be unsuccessful with the set k size, I will have update the retrieval
+program to per-type routing. 
 
 ---
 
@@ -105,13 +140,13 @@ adventure and art that remain within the walls,waiting for a student to uncover 
      is right or wrong. "What are good dining halls?" is too vague.
      "What do students say about wait times at [dining hall name] during lunch?" is testable. -->
 
-| # | Question | Expected answer |
-|---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| # | Question | Expected answer | Question Strength |
+|---|----------|-----------------|-------------------|
+| 1 |  What is the history behind the Dalton Trumbo Fountain?| The fountain was built in 1964 and rededicated in 1993 to honor CU alum Dalton Trumbo, a Hollywood screenwriter who was blacklisted during the McCarthy era. Kirk Douglas helped break the blacklist by crediting Trumbo for Spartacus. The fountain is a free speech gathering space in front of the UMC. | Tests whether the model can retrieve a specific named landmark with layered historical context across multiple source documents. |
+| 2 | What ghost story is associated with Macky Auditorium? | In 1966, music student Elaura Jaquette was murdered by janitor Joseph Dyre Morse in room 304. Students have reported hearing phantom organ music despite the organ being removed. There is a memorial plaque for her in the Norlin Quadrangle. | Tests retrieval across multiple sources that cover the same topic — a good stress test for deduplication and chunk quality. |
+| 3 | What wildlife can you spot on campus? |  Raccoons, deer, squirrels, beavers, prairie dogs, hawks, foxes, coyotes, and occasional bears (notably during fall move-in 2019). Turtles can be seen at Varsity Lake and Kittredge ponds. The campus also has a 10,000 sq ft pollinator garden with lavender and wildflowers. | Tests retrieval from shorter, list-style content and nature-focused sources rather than narrative articles. |
+| 4 | What are some lesser-known study spots that aren't Norlin Library? | UMC 5th floor lounge (Flatirons views), Environmental Design Building, Duane Physics top floor, BioLounge in the Museum of Natural History, Koenig Alumni Center living room, Gemmill Library, and the Mindfulness room on Norlin's first floor. | Tests aggregation across multiple short sources — Reddit comments, Her Campus, CU Today lists — where the answer is spread across several chunks. |
+| 5 | What is the origin story of Varsity Lake? | Before 1888, the area was a muddy ravine channeling snowmelt. In 1880 the student newspaper predicted a lake could be built there cheaply. A dam was built in 1888 forming Varsity Lake. Water lilies were recently reintroduced by a campus landscape architect inspired by old photos. | Tests retrieval of specific historical facts from a single focused source — a good check that your article chunking preserved narrative continuity rather than fragmenting the story. |
 
 ---
 
@@ -121,9 +156,16 @@ adventure and art that remain within the walls,waiting for a student to uncover 
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. The document type are different and using a consistent top-k size may be a risk 
+for retrieval. This coudld lead to chunks being too long or containing multiple 
+ideas if the original comment is short. It will also be important that all sources are
+attributed to allow the user to review and verify all provided responses. 
 
-2.
+2. There may be an insufficient number of source files to answer every query. It will 
+be important to have a response that indicates that an answer couldn't be found instead
+of making up one. It could be helpful for the Claude API to provide that an exact answer 
+couldn't be found but that another fact (most closely related) may be beneficial to the
+user. Don't make up something that isn't within the source documents. 
 
 ---
 
@@ -134,6 +176,7 @@ adventure and art that remain within the walls,waiting for a student to uncover 
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+![alt text](image.png)
 
 ---
 
@@ -141,9 +184,32 @@ adventure and art that remain within the walls,waiting for a student to uncover 
 
 <!-- For each part of the pipeline below, describe:
      - Which AI tool you plan to use (Claude, Copilot, ChatGPT, etc.)
+          - Code generation -> Claude (offline)
+          - Runtime generation -> Claude API (claude-sonnet-4-6)
+          - Retrieval Orchestra -> plain Python
+
      - What you'll give it as input (which sections of this planning.md, which requirements)
+          - Chunking spec
+          - all-mpnet-base-v2 embedding model
+          - metadatabase schema (source_type, url, place_name, category)
+          - top-k value k = 5 (will update per source if necessary)
+          - ChromaDB setup
+          - eval questions
+
      - What you expect it to produce
+          - For ingestion/chunking stage: a script that reads source documents, cleans HTML
+          boilerplate, applies chunking, embeds with all-mpnet-L6-v2, and stores in ChromaDB
+          with metadata. 
+          - For retrieval stage: a fuction that takes in query string, embeds it, queries
+          ChromaDB with top-k and returns ranked chunks AND a generation wrapper that passes 
+          retrieved chunks to the Claude API and returns an answer
+
      - How you'll verify the output matches your spec
+          - Run the five eval questions and inpect which chunks came back, not just final
+          answer
+          - Check that chunk sizes in ChromaDB match spec numbers
+          - Confirm metadata fields are present on retrieved chunks
+          - spot-check that article chunks aren't truncated mid-sentence
 
      "I'll use AI to help me code" is not a plan.
      "I'll give Claude my Chunking Strategy section and ask it to implement chunk_text()
