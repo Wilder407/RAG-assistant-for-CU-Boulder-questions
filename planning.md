@@ -198,6 +198,55 @@ user. Don't make up something that isn't within the source documents.
 
 **Milestone 3 — Ingestion and chunking:**
 
+- **AI tool:** Claude (offline, code generation)
+- **Input provided:** Full planning.md including the Documents table, Chunking Strategy 
+  section (chunk sizes and overlap per source type), metadata schema (source_type, url, 
+  place_name, category), and ChromaDB setup requirements
+- **Expected output:** A script (ingest.py) that fetches each source URL, cleans HTML 
+  boilerplate, detects source type, applies the correct chunking parameters, embeds with 
+  all-mpnet-base-v2, and stores chunks in ChromaDB with full metadata including 
+  chunk_index and total_chunks_in_source
+- **Verification:** Ran the built-in verify_store() function to confirm chunk counts, 
+  average token sizes per source type against spec targets, and spot-checked that metadata 
+  fields were present on retrieved chunks. Identified that only 39 chunks were stored — 
+  investigated whether the issue was chunk size or source count, determined it was blocked 
+  sources and insufficient source volume, added 4 additional article sources to reach 95 
+  chunks, and implemented an inline_text fallback pattern for JS-rendered and 403-blocked 
+  sources (Visit Boulder, CU Independent, Reddit threads)
+
 **Milestone 4 — Embedding and retrieval:**
 
+- **AI tool:** Claude (offline, code generation); plain Python for retrieval orchestration
+- **Input provided:** Retrieval Approach section specifying all-mpnet-base-v2, top-k = 5, 
+  and the five evaluation questions with expected answers from the Evaluation Plan section
+- **Expected output:** A script (retrieve.py) with a retrieve() function that accepts a 
+  query string, embeds it using the same model as ingest.py, queries ChromaDB with top-k, 
+  and returns ranked chunks with source metadata and distance scores
+- **Verification:** Ran all three tested eval queries and inspected returned chunk text, 
+  not just distances. Identified that distances above 0.5 and off-topic chunks indicated 
+  a model mismatch rather than a chunking problem. Confirmed the root cause by checking 
+  what was actually stored for the Trumbo source using a targeted debug query. Upgraded 
+  embedding model to multi-qa-mpnet-base-dot-v1 and updated the ChromaDB distance metric 
+  from cosine to inner product (ip) accordingly. Re-ingested and re-ran eval queries to 
+  confirm improvement. Updated the Macky Auditorium eval query from "What ghost story is 
+  associated with Macky Auditorium?" to "Is Macky Auditorium haunted?" and Varsity Lake 
+  from "What is the origin story of Varsity Lake?" to "Tell me about Varsity Lake" to 
+  better reflect natural user language without teaching to the test
+
 **Milestone 5 — Generation and interface:**
+
+- **AI tool:** Claude (offline, code generation); Groq API with llama-3.3-70b-versatile 
+  at runtime
+- **Input provided:** Retrieval Approach section, the Gradio skeleton provided in the 
+  assignment, requirement to use Groq with llama-3.3-70b-versatile initialized via 
+  python-dotenv, prompt template requirement to answer from context only with a fallback 
+  response when sources are insufficient, and source attribution requirement
+- **Expected output:** Three files — query.py containing the prompt template and 
+  end-to-end pipeline function ask(), app.py wiring the Gradio UI to ask() with the 
+  model and ChromaDB collection loaded once at startup, and .env.example documenting 
+  required environment variables. Source attribution rendered as clickable links in the 
+  interface
+- **Verification:** Ran python query.py with eval questions from the command line to 
+  confirm grounded answers before launching the UI. Confirmed that answers stayed within 
+  retrieved context and that the fallback message appeared for out-of-scope questions. 
+  Verified source links opened correct URLs in the browser

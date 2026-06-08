@@ -219,4 +219,8 @@ I gave the AI a series of evaluation questions to inspect the accuracy of the re
 The AI produced a response that was also narrative-based like the question prompted. However, the expected response about the murder was still missing.
 
 - *What I changed or overrode:*
-I pushed back on rewriting eval queries to match the corpus since it would defeat the purpose. This helped me see the braoder issue with the embed library and also identified the blocked source files. Replacing the embed library with multi-qa-mpnet-base-dot-v1 increased the accuracy of Q&A queries. Adding additional source articles improved the available keywords. I also updated the Varsity lake eval question from "What is the origin story of Varisty Lake?" to "Tell me about Varsity Lake" which uses natural language. 
+I pushed back on rewriting eval queries to match the corpus since it would defeat the purpose. This helped me see the braoder issue with the embed library and also identified the blocked source files. Replacing the embed library with multi-qa-mpnet-base-dot-v1 increased the accuracy of Q&A queries. Adding additional source articles improved the available keywords. I also updated the Varsity lake eval question from "What is the origin story of Varsity Lake?" to "Tell me about Varsity Lake" which uses natural language. 
+
+**Vimeo Demo Link**
+
+https://vimeo.com/1199458448?share=copy&fl=sv&fe=ci
