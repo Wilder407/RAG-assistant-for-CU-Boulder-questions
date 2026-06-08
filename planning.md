@@ -43,13 +43,16 @@ adventure and art that remain within the walls,waiting for a student to uncover 
 | 7 | Cu Independent |Article | https://www.cuindependent.com/2013/10/24/secret-tunnels-and-murder-the-not-so-scary-truth/|
 | 8 | Coloradan Alumni Magazine | Article |https://www.colorado.edu/coloradan/2010/09/01/unlocking-cu-secrets |
 | 9 | BASIN | Text | https://bcn.boulder.co.us/basin/watershed/geology/historic.html
-| 10 | CU Independent | Newspaper | https://www.cuindependent.com/2023/10/31/a-haunted-history-of-cus-macky-auditorium/ |
+| 10 | Daily Camera | Newspaper | https://www.dailycamera.com/2009/08/13/cu-student-murdered-40-years-ago-honored/|
 | 11 | About Boulder | Website | https://aboutboulder.com/blog/old-main-at-cu-boulder-history-flatirons-views-fun-facts/ |
 | 12 | Reddit | Forum Thread | https://www.reddit.com/r/whatisit/comments/1rwtvbg/comment/ob2cvjy/ |
 | 13 | Reddit | Forum Thread | https://www.reddit.com/r/cuboulder/comments/w0ylxm/what_are_some_good_hidden_places_or_resource/ |
 | 14 |  Reddit | Forum Thread | https://www.reddit.com/r/whatisit/comments/1rwtvbg/comment/ob2cvjy/ |
 | 15 |  Reddit | Forum Thread | https://www.reddit.com/r/cuboulder/comments/1stfz3m/whats_a_free_thing_to_do_in_boulder_that_most_cu/ |
-
+| 16 | CU Independent | BLOCKED Article | https://www.cuindependent.com/2016/02/05/the-story-behind-the-naming-of-the-dalton-trumbo-fountain/ |
+| 17 | CU Campus Master Plan| Article | https://www.colorado.edu/masterplan/history/klauder-years-1918-1939 |
+| 18 | CU 150th Anniversary | Article | https://www.colorado.edu/150/cu-boulder-student-life-through-decades | 
+| 19 | CU Alumni Association | Article | https://www.colorado.edu/alumni/2026/04/15/top-10-cu-boulder-traditions-bring-buffs-together |
 ---
 
 ## Chunking Strategy
@@ -143,7 +146,7 @@ program to per-type routing.
 | # | Question | Expected answer | Question Strength |
 |---|----------|-----------------|-------------------|
 | 1 |  What is the history behind the Dalton Trumbo Fountain?| The fountain was built in 1964 and rededicated in 1993 to honor CU alum Dalton Trumbo, a Hollywood screenwriter who was blacklisted during the McCarthy era. Kirk Douglas helped break the blacklist by crediting Trumbo for Spartacus. The fountain is a free speech gathering space in front of the UMC. | Tests whether the model can retrieve a specific named landmark with layered historical context across multiple source documents. |
-| 2 | What ghost story is associated with Macky Auditorium? | In 1966, music student Elaura Jaquette was murdered by janitor Joseph Dyre Morse in room 304. Students have reported hearing phantom organ music despite the organ being removed. There is a memorial plaque for her in the Norlin Quadrangle. | Tests retrieval across multiple sources that cover the same topic — a good stress test for deduplication and chunk quality. |
+| 2 | Was there a murder in Macky Auditiorium? | In 1966, music student Elaura Jaquette was murdered by janitor Joseph Dyre Morse in room 304. Students have reported hearing phantom organ music despite the organ being removed. There is a memorial plaque for her in the Norlin Quadrangle. | Tests retrieval across multiple sources that cover the same topic — a good stress test for deduplication and chunk quality. |
 | 3 | What wildlife can you spot on campus? |  Raccoons, deer, squirrels, beavers, prairie dogs, hawks, foxes, coyotes, and occasional bears (notably during fall move-in 2019). Turtles can be seen at Varsity Lake and Kittredge ponds. The campus also has a 10,000 sq ft pollinator garden with lavender and wildflowers. | Tests retrieval from shorter, list-style content and nature-focused sources rather than narrative articles. |
 | 4 | What are some lesser-known study spots that aren't Norlin Library? | UMC 5th floor lounge (Flatirons views), Environmental Design Building, Duane Physics top floor, BioLounge in the Museum of Natural History, Koenig Alumni Center living room, Gemmill Library, and the Mindfulness room on Norlin's first floor. | Tests aggregation across multiple short sources — Reddit comments, Her Campus, CU Today lists — where the answer is spread across several chunks. |
 | 5 | What is the origin story of Varsity Lake? | Before 1888, the area was a muddy ravine channeling snowmelt. In 1880 the student newspaper predicted a lake could be built there cheaply. A dam was built in 1888 forming Varsity Lake. Water lilies were recently reintroduced by a campus landscape architect inspired by old photos. | Tests retrieval of specific historical facts from a single focused source — a good check that your article chunking preserved narrative continuity rather than fragmenting the story. |
