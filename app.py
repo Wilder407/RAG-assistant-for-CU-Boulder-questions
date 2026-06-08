@@ -59,8 +59,16 @@ def handle_query(question: str):
         groq_client=_groq,
     )
 
-    sources = "\n".join(f"• {s}" for s in result["sources"])
-    return result["answer"], sources
+    source_items = []
+    for s in result["sources"]:
+        if " — " in s:
+            place, url = s.split(" — ", 1)
+            source_items.append(f'<a href="{url}" target="_blank" rel="noopener noreferrer">• {place}</a>')
+        else:
+            source_items.append(f'<span>• {s}</span>')
+    label = '<p style="font-family: Playfair Display, serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b5e3e; margin-bottom: 0.4rem;">Retrieved from</p>'
+    body = "<br>".join(source_items) if source_items else "<em>No sources retrieved.</em>"
+    return result["answer"], label + body
 
 
 # ---------------------------------------------------------------------------
@@ -72,7 +80,7 @@ EXAMPLES = [
     "Was there a murder in Macky Auditorium?",
     "What wildlife can you spot on campus?",
     "What are some lesser-known study spots that aren't Norlin Library?",
-    "Tell me about Varsity Lake?",
+    "Tell me about Varsity Lake.",
 ]
 
 # ---------------------------------------------------------------------------
@@ -185,7 +193,7 @@ body, .gradio-container {
 }
 
 /* Sources box */
-#sources-box textarea {
+#sources-box > div {
     background: var(--cu-warm) !important;
     border: 1.5px solid #c9bfa0 !important;
     border-radius: var(--radius) !important;
@@ -194,7 +202,19 @@ body, .gradio-container {
     color: #4a3f28 !important;
     padding: 0.75rem !important;
 }
-#sources-box label {
+#sources-box a {
+    display: block;
+    color: #8B3A2A !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.88rem;
+    margin-bottom: 0.2rem;
+    word-break: break-all;
+}
+#sources-box a:hover {
+    color: #1a1a1a !important;
+}
+#sources-box .label-wrap {
     font-family: 'Playfair Display', serif !important;
     font-size: 0.85rem !important;
     font-weight: 700 !important;
@@ -234,11 +254,11 @@ body, .gradio-container {
 }
 """
 
-with gr.Blocks(css=CSS, title="CU Boulder Unofficial Guide") as demo:
+with gr.Blocks(css=CSS, title="Beyond the Brochure") as demo:
 
     gr.HTML("""
         <div id="header">
-            <h1>The Unofficial Guide to CU Boulder</h1>
+            <h1>Beyond the Brochure</h1>
             <p>Hidden history, folklore, and campus secrets — things they don't tell you on the tour</p>
         </div>
     """)
@@ -266,10 +286,8 @@ with gr.Blocks(css=CSS, title="CU Boulder Unofficial Guide") as demo:
                 interactive=False,
                 elem_id="answer-box",
             )
-            sources_box = gr.Textbox(
-                label="Retrieved from",
-                lines=4,
-                interactive=False,
+            sources_box = gr.HTML(
+                value='<p style="font-family: Playfair Display, serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b5e3e;">Retrieved from</p>',
                 elem_id="sources-box",
             )
 

@@ -62,31 +62,6 @@ adventure and art that remain within the walls,waiting for a student to uncover 
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-     For newspaper articles and webpages, I will use a chunk size of 300 tokens with a 
-     75 token overlap. These documents are typically written about one subject matter. 
-     At roughly 350 tokens, this chunk size should be sufficient to capture the full 
-     context of the idea without pulling in unrelated information. The 75 token overaly
-     ensures that sentences straddling a boundary remain retrievable from either end. 
-
-     For Reddit comments and short student written posts, I will use a chunk size of 
-     150 tokens with a 30 token overlap. These documents are already compact and 
-     conversational. This size Larger chunk sizes would group together unrelated ideas. 
-
-     For map captions and one-line entries, I will keep the input as one caption with no 
-     splitting, usually 30 -80 tokens. These inputs typically have contain the full meaning.
-     Instead of overlap, I will attach structured metadata such as location, source URL, 
-     category) so retrieval has enough to surface them correctly.
-
-**Chunk size:**
-
-**Overlap:**
-
-**Reasoning:**
-Here's the edited version, cleaned up for clarity, consistency, and ready to hand to Claude as a precise spec:
-
----
-
-**Chunking Strategy**
 
 For newspaper articles and webpages, I will use a chunk size of **300 tokens** with a **75-token overlap**. These documents are typically focused on a single subject. At 300 tokens, each chunk should capture one complete idea without pulling in unrelated content. The 75-token overlap ensures that sentences straddling a boundary remain retrievable from either side.
 
@@ -113,6 +88,7 @@ For map captions and single-line entries, I will keep each entry as **one chunk 
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+
 THe model that I would use is all-mpnet-base-v2 via sentence-transformer. The all-MiniLM-L6-v2, 
 while popular, limits chunk size to 256 chars which is is not effective for the longer chunks 
 required for the article and webpage artifacts. This model also eliminates the silent truncation 
@@ -122,10 +98,12 @@ multi-qa-mpnet-base-dot-v1 is a defensible upgrade given because this RAG is que
 system.
 
 **Top-k:**
+
 The embedding model will use a single retrieval call instead of per-type routing. For the corpus
 as a while, k=5 should be a solid option. 
 
 **Production tradeoff reflection:**
+
 If I wasn't limitedby cost, the multi-qa-mpnet-base-dot-v1 is a defensible upgrade given because 
 this RAG I'm building is a question-answering system. That library has been trained on a wider 
 range of inputs and better supports natural language inputs than the all-mpnet-base-v2 is strong
