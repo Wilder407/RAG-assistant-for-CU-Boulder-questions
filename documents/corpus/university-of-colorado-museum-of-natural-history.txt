@@ -1,0 +1,11 @@
+# place_name : University of Colorado Museum of Natural History
+# url        : https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/
+# category   : visitor_guide
+# source_type: caption
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 3d94721252e3ade35420f342486cc033825bdfe87c05981130292ebd82255680
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+The CU Museum of Natural History in Henderson Building has geology, paleontology, anthropology, and zoology exhibits. Free admission. The BioLounge inside is a popular quiet study spot.

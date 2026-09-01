@@ -250,3 +250,73 @@ user. Don't make up something that isn't within the source documents.
   confirm grounded answers before launching the UI. Confirmed that answers stayed within 
   retrieved context and that the fallback message appeared for out-of-scope questions. 
   Verified source links opened correct URLs in the browser
+
+---
+
+## Addendum — 2026-09-01: generation model migration
+
+Everything above records the project as built and submitted in June–July 2026. It is
+left unedited on purpose. This section records what changed afterward and why.
+
+**What happened:** Groq announced on 2026-06-17 that `llama-3.1-8b-instant` and
+`llama-3.3-70b-versatile` would be shut down on 2026-08-16 for free and developer-tier
+usage (enterprise committed-spend contracts are exempt). The assignment specified
+`llama-3.3-70b-versatile` and this project used a free-tier key, so as of 2026-08-16
+generation no longer runs. The deviation from the assignment spec is forced, not chosen.
+
+**Migration:** Switched to `openai/gpt-oss-120b`, Groq's own recommended replacement.
+Two consequences followed from it being a reasoning model rather than a drop-in swap:
+
+- Its internal reasoning tokens are billed against the same output budget as the answer,
+  so `MAX_TOKENS` was raised from 512 to 1024 to keep short answers from being truncated
+  by reasoning.
+- `reasoning_effort` was set to `low` — these answers are 3–6 sentence grounded
+  summaries, not problems that benefit from extended deliberation. It is passed via the
+  SDK's `extra_body` because the parameter postdates the pinned `groq==0.15.0`, which
+  rejects it as an unknown keyword argument. Verified against a stubbed endpoint that
+  the parameter reaches the request body.
+- Answer parsing needed no change: gpt-oss returns reasoning in a separate
+  `message.reasoning` field rather than inline `<think>` tags, so
+  `message.content` is still answer prose only.
+
+**Hardening, so the next deprecation costs less:** The model ID moved to a `GROQ_MODEL`
+environment variable with the current default in code, making a future swap a `.env`
+edit. Tagged the pre-migration state as `v1.0-as-submitted`. Added `requirements.lock`
+(exact `pip freeze` of a verified install) and `.python-version`, because the loose
+`>=` and bare pins in `requirements.txt` meant a rebuild silently pulled
+`chromadb 1.5.9` against code written for `0.6.x`. Repaired `script.py`, which had been
+pointing at a hardcoded `~/Desktop` path left over from before the project moved to
+iCloud.
+
+**Not yet verified end to end.** The migration was confirmed by static and stubbed
+testing only. The `chroma_db/` store is gitignored and no longer present, so a real run
+requires re-running `ingest.py` — which re-scrapes all 19 remote sources under newer
+library versions. The eval results reported in the README predate both the model change
+and that rebuild, and should be re-run before being cited again.
+
+**Corpus snapshot, and a bug it exposed.** The source URLs were committed in `SOURCES`
+but the fetched text was not, so the corpus depended on other people's servers staying
+up and scrapeable. Added `cache_corpus.py`, which resolves every source the same way
+`build_vector_store()` does and freezes the result under `documents/corpus/` with a
+provenance header per file and a `manifest.json` recording URL, method, SHA-256, and
+character count. 17 of 22 sources resolved on 2026-09-01.
+
+Snapshotting the corpus immediately surfaced a real bug. The five failures are not
+blocked, paywalled, or JS-rendered — each returns a complete 140–157 KB article. The
+text is then deleted by `clean_html()`: `BOILERPLATE_PATTERNS` matches on `header`
+inside the WordPress wrapper class `wrapper-boxed header-style-header-5`, which is the
+outermost element containing the article, so decomposing it takes the article body with
+it. Measured on the Macky Auditorium source: 4,016 characters extract with
+tag-stripping alone, 0 survive the class/id pass.
+
+This means the failure-case diagnosis in the Milestone 4 notes above and in the README
+was wrong. The *observed* behavior was correct — retrieval found nothing and the system
+said so rather than hallucinating, which is the grounding working as designed. But the
+cause was this project's own cleaner being too aggressive, not remote sites blocking
+access. Roughly 23% of the corpus is recoverable by scoping that filter to chrome
+elements instead of any matching ancestor. The eight sources carrying hand-written
+`inline_text` were compensating for this bug rather than for anything remote.
+
+Not fixed here deliberately: repairing the cleaner changes the corpus, the chunk
+counts, and every eval result, so it wants a re-ingest and a fresh eval run rather than
+a quiet patch.

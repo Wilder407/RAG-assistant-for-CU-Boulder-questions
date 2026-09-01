@@ -1,0 +1,11 @@
+# place_name : Norlin Quadrangle
+# url        : https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/
+# category   : visitor_guide
+# source_type: caption
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 4405b8e6c828e52ffb0b8cf6ea995b051f9c6e78e85b3c255b05feda2301e56c
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+Norlin Quad is the historic heart of CU Boulder, surrounded by Tuscan-inspired sandstone buildings. The Dalton Trumbo Fountain and Elaura Jaquette memorial plaque are both located here. A popular outdoor gathering and free speech space.

@@ -1,0 +1,160 @@
+# place_name : Boulder Geology and History
+# url        : https://bcn.boulder.co.us/basin/watershed/geology/historic.html
+# category   : history
+# source_type: article
+# method     : fetch_html
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 8fbd52e7e30eaa65bd12c0358fb09f00b52455f17142892156b65d01e6776f35
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+Geologic History of the Boulder Area Excerpted from "Boulder, A Sight to Behold: Guidebook" (1976) by Donald D. Runnells, modified by Sheila Murphy . Graphics adapted from Runnells by Erica J. Keefe. Geologic events and the rocks and formations produced during these events. Geologic and Stratigraphic Column for Boulder Area Precambrian
+Time (approximately 600 million years ago and older) The oldest
+rocks in the Boulder area are Precambrian in age, and have been dated at
+about 1.7 billion years before present time (BP), as measured from the decay
+of radioactive elements. The Precambrian rocks consist of granitic and
+metamorphic rocks. The oldest Precambrian rocks in the Boulder area are
+metamorphic rocks, which means they were transformed by heat, pressure, and
+chemical reactions from older rocks into their present form. The Precambrian
+rocks were most likely originally laid down as sediments, such as sand and
+mud, in an ancient sea. These rocks were deeply buried beneath younger
+strata, and the metamorphic transformation occurred deep in the earth. The
+most common types of Precambrian metamorphic rocks west of Boulder are
+schist, gneiss, and quartzite and are found in the foothills and mountains
+west of the Boulder area. On at least two
+occasions, mountains were formed from these rocks and they were uplifted by
+great forces from below. Hot molten magma was injected into the rocks,
+forming granitic rocks. The rocks have been uplifted and exposed to the
+surface by tectonic processes and erosion. The predominant Precambrian
+granitic rock in the Boulder Canyon area is the Boulder Creek granodiorite,
+and it makes up the walls of Boulder Canyon. It also makes up the crest and
+west side of Flagstaff Mountain. Paleozoic Time (approximately 240 to 600 million
+years ago) At the beginning of
+the Paleozoic Era, about 600 million years ago, ocean water gradually flooded
+across the old eroded surface of the Precambrian rocks. Sands were deposited
+along beaches, and lime mud was precipitated in the deeper waters of the
+ocean as it covered Colorado. The sands and lime mud were buried under great
+thicknesses of younger strata and were transformed into sandstone and
+limestone. For most of the next 300 million years, a gentle pattern
+was repeated over most of Colorado, with intervals of gradual flooding by the
+sea and deposition of sediments, followed by slight uplifts and erosion. None
+of the rocks deposited during this time period are found near Boulder; they
+were either not deposited because the land was slightly above sea level, or
+they have since been eroded away. During the early part of the
+Pennsylvanian Period, about 300 million years ago, two mountain ranges were
+pushed up in central and western Colorado. These ranges are known as the
+Ancestral Rockies. This event pushed Precambrian rocks well above the land
+surface and exposed them to weathering. Erosion cut into these rocks and
+carried floods of loose debris away to the east and west. This debris was
+deposited as a mixture of coarse and fine fragments, forming the sandstones
+and shales that make up the Fountain Formation. The Fountain Formation has a
+deep red color because of oxidation of iron in the minerals, and contains
+well-developed layering or bedding. The Formation was originally laid down
+flat, but was steeply tilted during fairly recent mountain forming. The
+Flatirons, Red Rocks, and Sanitas Ridge, all directly west of Boulder, are
+composed of Fountain Formation. During the Permian Period, about 260
+million years ago, the sea began to creep in from the east. The climate on
+the land was that of a desert, with vast areas of sand dunes being blown
+about by the wind. These sands buried the older Fountain Formation to depths
+of at least 220 feet in this region, forming the Lyons Sandstone. The stone
+used for many of the buildings on the University of Colorado campus were
+excavated from the Lyons Sandstone. The pink color of the Lyons Sandstone is
+caused by traces of iron oxide between the small grains of sand. The Lyons
+Sandstone is very hard, forming ridges (hogbacks) in most places along the
+Front Range. Mesozoic Time (approximately 65
+to 240 million years ago) During the next 20 million years or so,
+during the end of the Permian and part of the Triassic Period, the Boulder
+area was marked by broad, flat floodplains, with rivers flowing lazily to the
+east. Soft muds and silts were carried by the streams, to be deposited to a
+thickness of about 675 feet on top of the older, underlying Lyons sandstone.
+These deposits are preserved today as the bright red Lykins Formation. The
+Lykins formation is soft, consisting mostly of shale, sandstone, and
+siltstone. It forms the Lykins Valley, just west of the first hogback west of
+Boulder. The remainder of the Triassic period was marked by a continuation
+of the gentle uplift and erosion that had characterized earlier Permian time,
+and deposits of this time are absent in the Boulder area. Deposits are
+also absent for most of the Jurassic Period. But in late Jurassic time, about
+150 million years ago, a desert environment and widespread sand dunes had
+again formed in western Colorado and eastern Utah. The thin eastern edge of
+this field of sand is preserved in the Boulder area in the form of
+light-colored, cross-bedded Entrada Sandstone, about 30 feet thick. Late in Jurassic
+time, floodplain conditions again developed, and the Morrison Formation was
+deposited. The Morrison formation consists of about 300 feet of brown,
+green, red, and blue mud, volcanic ash, silt, and sand. These sediments were
+carried across broad, swampy lowlands by rivers flowing eastward from
+highlands and volcanic areas far to the west in Utah and Nevada. The moist
+and hospitable climate supported an abundance of life, including
+dinosaurs. At the start of the Cretaceous Period, about 135 million
+years ago, sands and gravels were carried eastward over the Boulder area from
+mountains rising to the west in Utah and Nevada. At about the same time, a
+massive invasion by the sea began in eastern Colorado. The sea entered the
+central U.S. from the north and south, laying down a deposit of beach sand
+along its edge, known as the lower part of the Dakota group. The group of
+formations, including some marine shales, is about 320 feet thick near
+Boulder. The lower sandstone of the Dakota is very hard and resistant to
+erosion, so that it stands in stark relief above the softer sediments above
+and below it, forming the first hogback west of Boulder. The Dakota hogback
+can be traced both to the north and south along the eastern side of the Front
+Range for hundreds of miles. The next 70 million years of Cretaceous
+time were marked by several advances and retreats of the sea. The deposits
+associated with these episodes of marine flooding consist of shale,
+sandstone, limestone, and some beds of coal. The environments suggested by
+the rocks include the deep sea, sandy beaches, and coast swamps. Names
+applied to the various formations are (from oldest to youngest): the Benton
+Shale, Niobrara Limestone, Pierre Shale, Fox Hills Sandstone, and the Laramie
+Formation. Together these formations total over 10,000 feet of sediment.
+Fossils are abundant in many of these units. These strata are generally soft
+and easily eroded. The city of Boulder and the National Center of Atmospheric
+Research (NCAR) are built on the Pierre Shale. The fresh Pierre is gray,
+soft, and best seen in fresh roadcuts and ditches. At the end of
+Cretaceous time, about 70 million years ago, the sea slowly withdrew to the
+northeast. It left behind vast swamps, from which the coals of the Laramie
+Formation formed. The withdrawal of the sea took about 10 to 15 million
+years. Cenozoic Time (0 to approximately 65 million years ago) During the late Cretaceous and early Tertiary
+time, mountain building began again in Colorado. As the mountains were
+uplifted, swiftly flowing streams carried floods of debris downward to the
+plains. Hot magma invaded the older rocks of the mountains, and the forces
+of mountain building caused the rocks to be greatly deformed. Rich deposits
+of metallic ores were precipitated as hot mineralizing waters flowed from the
+magmas through the cracks in the rocks. It was at this time, in the early and
+middle Tertiary Period, that most of the valuable deposits of metallic ores
+were formed in Colorado. Where the magma reached the surface of the
+earth, it spewed out in the form of volcanic eruptions. Only the scattered
+remains of lava flows can be seen in the Boulder area, such as on the tops of
+North and South Table Mountains near Golden. It was during this time of
+mountain building that the Fountain Formation was steeply tipped to form the
+Flatirons along the east front of the mountains. The thick Pierre shale was
+also bent upward under the present site of Boulder. Active mountain
+building continued throughout the remainder of Tertiary and Quaternary time.
+It is probable that the Rockies attained their greatest height in the early
+Tertiary Period, about 45 million years ago. Those peaks were later lowered
+by erosion. Sand and gravel are currently being extracted in Boulder
+County. These materials represent the rock debris that has been stripped by
+streams from the mountains. A number of sand and gravel pits are active in
+the floodplains of the streams and rivers along the Front Range. The Walden
+and Sawhill Ponds east of Boulder are formed from old gravel
+pits. Today The long history of mountain building that
+gave us the present Rockies was punctuated by periods of quiescence and
+erosion. Looking southwestward from the city of Boulder toward the Flatirons,
+a series of flat-topped mesas is visible. These mesas are remnants of
+erosional surfaces, called pediments, that developed during lulls in regional
+uplift. Throughout the history of mountain building, streams continued to
+erode and transport rock debris out onto the plains east of the mountain
+front, producing these flat surfaces. The highest of the several mesas formed
+by these ancient streams is about 1000 feet higher than Boulder, showing that
+at least that much uplift of the mountains or downcutting by streams has
+occurred in fairly recent geologic history. Along the eastern flank of
+the Front Range the rocks have been pushed up along several major faults. The
+rocks that comprise Flagstaff Mountain have been pushed up and eastward along
+the faults, coming to rest on top of younger sedimentary rocks. During
+the present great interval of geologic time - the Quaternary Period -the
+Boulder area has seen erosional effects of glaciation. At least four times
+during the past million years or so, vast sheets of ice have moved southward
+out of the Arctic to cover much of Canada and the northern United States.
+There were many active glaciers in the mountains west of Boulder, but none of
+the glaciers seemed to have extended below the 8000 foot level of elevation,
+so there are no deposits of glacial debris near Boulder. Geologists recognize
+at least three distinct periods during which the mountain glaciers grew and
+gouged their way down the valleys from the continental divide. Floods of
+meltwater from the ice hastened the erosion. Glacial deposits and erosional
+features can be seen near the towns of Nederland and Eldora. Additional Geology Information The Geology of Mineral Resources in the Boulder Area A Geologic Cross Section of the Boulder Area A Geologic Map of the Boulder Area Return to the Geologic Introduction to the Boulder Area For more information about geology and mining in the Boulder area, see the BASIN bibliography . Geologic and Stratigraphic Column for Boulder Area The following stratigraphic diagram relates geologic time to the geologic formations found in the Boulder Area. Each era listed on the diagram is linked to a discussion of the rocks formed during that era which follows on this page. Return to the BASIN Watershed Theme

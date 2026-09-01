@@ -1,0 +1,11 @@
+# place_name : Fiske Planetarium
+# url        : https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/
+# category   : visitor_guide
+# source_type: caption
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 4537e2715e67d4a633e56b5481973fe27cf3332072b9535566c0d29391f79522
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+Fiske Planetarium is on the CU Boulder campus and is one of the largest planetariums in the US. It offers public shows, laser concerts, and educational programs. Admission is free or low-cost for students.

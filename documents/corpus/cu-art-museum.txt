@@ -1,0 +1,11 @@
+# place_name : CU Art Museum
+# url        : https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/
+# category   : visitor_guide
+# source_type: caption
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 4c088b7b8ccc0b1f58e8aff4238a462e12a54861ef4c457acfa7397ce809287d
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+The CU Art Museum hosts rotating exhibitions of contemporary and historic art and is free and open to the public. Located in the Visual Arts Complex on campus.

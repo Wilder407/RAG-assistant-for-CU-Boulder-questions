@@ -1,0 +1,11 @@
+# place_name : Reddit: Hidden Places and Resources
+# url        : https://www.reddit.com/r/cuboulder/comments/w0ylxm/what_are_some_good_hidden_places_or_resource/
+# category   : study_spots
+# source_type: reddit
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : 5e502cee17003a0c05106260f3c0af3ed811241eccdfc8f0bda7f398db3a716f
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+PLACEHOLDER: Paste the best comments from https://www.reddit.com/r/cuboulder/comments/w0ylxm/ here. Each comment should be separated by a blank line. Remove usernames and upvote counts — content only.

@@ -4,7 +4,7 @@ Stage 3: Retrieval → Prompt → Generation → Source Attribution
 
 Wires together:
   - retrieve.py  : embeds the query, pulls top-k chunks from ChromaDB
-  - Groq API     : generates a grounded answer using llama-3.3-70b-versatile
+  - Groq API     : generates a grounded answer using openai/gpt-oss-120b
   - Prompt       : instructs the model to answer from context only
   - Output       : {"answer": str, "sources": list[str]}
 
@@ -34,8 +34,19 @@ from retrieve import retrieve, MODEL_NAME, COLLECTION_NAME, PERSIST_DIR, TOP_K
 
 load_dotenv()
 
-GROQ_MODEL = "llama-3.3-70b-versatile"
-MAX_TOKENS  = 512
+# Overridable via .env so a future decommissioning is a config change, not a code
+# change. llama-3.3-70b-versatile — the model this project was built on — was
+# decommissioned on Groq's free and developer tiers 2026-08-16; openai/gpt-oss-120b
+# is Groq's recommended replacement.
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+
+# gpt-oss is a reasoning model: its internal reasoning tokens are billed against
+# the same output budget as the answer, so 512 no longer leaves enough headroom.
+MAX_TOKENS  = 1024
+
+# Answers here are 3–6 grounded sentences, not proofs — minimal reasoning keeps
+# latency down and leaves the budget for the answer itself.
+REASONING_EFFORT = "low"
 
 
 # ---------------------------------------------------------------------------
@@ -169,7 +180,12 @@ def ask(
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user",   "content": user_prompt},
         ],
+        # Passed through extra_body rather than as a named argument: reasoning_effort
+        # postdates the pinned groq==0.15.0 SDK, which would reject it as unknown.
+        extra_body={"reasoning_effort": REASONING_EFFORT},
     )
+    # gpt-oss returns its reasoning in a separate message.reasoning field, so
+    # .content is the answer prose only — no <think> block to strip.
     answer = response.choices[0].message.content.strip()
 
     # Stage 4 — Build source attribution list

@@ -1,0 +1,11 @@
+# place_name : Reddit: Free Things to Do in Boulder
+# url        : https://www.reddit.com/r/cuboulder/comments/1stfz3m/whats_a_free_thing_to_do_in_boulder_that_most_cu/
+# category   : campus_life
+# source_type: reddit
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : a489569a0375dbc2dc2f183f1bd5953638579c2553d303c1c47c3f5d3c0be08f
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+PLACEHOLDER: Paste the best comments from https://www.reddit.com/r/cuboulder/comments/1stfz3m/ here. Each comment should be separated by a blank line. Remove usernames and upvote counts — content only.

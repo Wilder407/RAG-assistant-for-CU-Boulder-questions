@@ -1,0 +1,11 @@
+# place_name : Varsity Lake
+# url        : https://www.bouldercoloradousa.com/things-to-do/visiting-cu/things-to-do-at-cu/
+# category   : visitor_guide
+# source_type: caption
+# method     : inline_text
+# cached_at  : 2026-09-01T18:00:33+00:00
+# sha256     : d5dac1cc0485898243cb46f63f7047bc8644a0eec6d56e76030389c8fe265e01
+#
+# Text below is the exact string ingest.py would chunk. Do not edit.
+--------------------------------------------------------------------------
+Varsity Lake is a scenic pond at the heart of CU Boulder campus. Turtles are often spotted sunning on rocks. Water lilies were reintroduced in recent years by a campus landscape architect inspired by historic photos.
